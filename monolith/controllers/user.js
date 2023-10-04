@@ -19,7 +19,6 @@ class User {
             
            const  session=req.session;
             session.user=doc;
-            console.log(req.session)
 
           
             res.redirect("/")
@@ -62,6 +61,15 @@ class User {
         })
         
     }
+
+    /** 
+     *  @url=/logout
+     *  @method=GET
+     */
+    static logout(req,res){
+        req.session.destroy();
+        res.redirect('/');
+    };
 }
 
 module.exports = User
